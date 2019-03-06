@@ -15,9 +15,12 @@ public class Tape : MonoBehaviour
         rb.velocity = Vector2.right * speed;
     }
 
-    void OnTriggerEnter2D()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
     }
 
 
